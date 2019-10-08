@@ -1,0 +1,151 @@
+%------------------------------------------------------------------------------------------------------------------
+% Licencse Header
+%------------------------------------------------------------------------------------------------------------------
+
+% MIT License
+% 
+% Copyright (c) 2019 Emin Yagmahan
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+%------------------------------------------------------------------------------------------------------------------
+%  Document Information
+%------------------------------------------------------------------------------------------------------------------
+% Author: Emin Yagmahan
+% Last Mod. Date: 03.10.2019
+
+
+%------------------------------------------------------------------------------------------------------------------
+%  Document Definitions
+%------------------------------------------------------------------------------------------------------------------
+
+%  KOMA-Script Klasse mit einseitigem Druck, Titelblatt, Inhaltverzeichnis etc.
+\documentclass[11pt, paper=a4, parskip=half, titlepage, toc=listof, toc=bib, toc=idx, numbers=noendperiod]{scrreprt}
+
+% Geometry Paket zur Definition der Seitengrößen
+\usepackage[left=30mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[english, ngerman]{babel}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{url}
+
+% Graphicx Paket zum Handeln von Abbilungen. Alle Abbildungen sind unter dem Pfad "Abbildungen/" abzulegen
+\usepackage[]{graphicx}
+\graphicspath{Abbildungen/}
+
+\usepackage{textcomp, fixmath}
+\usepackage{bm}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize, frame=single, numbers=left, tabsize=3, backgroundcolor=\color{light-yellow}, extendedchars, keywordstyle=\color{red}, commentstyle=\color{blue}, language={[LaTex]Tex}}
+\usepackage[usenames]{xcolor}
+
+% WIP
+\usepackage[backend=biber, sorting=none]{biblatex}
+
+\addbibresource{Literatur/Literaturverzeichnis.bib}
+
+\usepackage{csquotes}
+\usepackage{microtype}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{textpos}
+\usepackage{setspace}
+\usepackage{svg}
+\usepackage{blindtext}
+
+% Showframe Paket eignet sich zum Debuggen, indem Seitenränder angezeigt werden
+%\usepackage{showframe}
+
+% Paket zur Verwaltung von Abkürzungen. Der Parameter "printonlyused" wird lediglich die verwendeten Abkürzungen in das Abkürzungsverzeichnis integrieren
+\usepackage[printonlyused]{acronym}
+\usepackage{scrhack}
+
+% Angaben zur Abbildungs- und Tabellenunterschriften
+% Hinweis: Die Bild- oder Tabellenunterschriften befinden sich linksbündig relativ zur Abbildung, nicht zur Seite.
+\usepackage{siunitx,booktabs,threeparttable,caption}
+\captionsetup[table]{font=scriptsize,justification=raggedright,singlelinecheck=off}
+\captionsetup[figure]{font=scriptsize,justification=raggedright,singlelinecheck=off}
+\sisetup{separate-uncertainty=true}
+\addtokomafont{captionlabel}{\bfseries}
+
+% Entfernt den Texteinzug beim Erstellen neuer Kapitel
+\RedeclareSectionCommand[beforeskip = 0pt, afterindent = false,]{chapter}
+
+\addtokomafont{chapter}{\rmfamily\bfseries}
+\addtokomafont{section}{\rmfamily\bfseries}
+\addtokomafont{subsection}{\rmfamily\bfseries}
+\addtokomafont{chapterentry}{\rmfamily\bfseries}
+
+
+% Diese Custom-Kommando erstellt einheitliche Unterschrift und Datenfelder (siehe Eidesstattliche Erklärung)
+\newcommand*{\SignatureAndDate}[1]{%
+    \vspace{2cm}
+    \par\noindent\makebox[2.5in]{\hrulefill} \hfill\makebox[2.0in]{\hrulefill}%
+    \par\noindent\makebox[2.5in][l]{#1}      \hfill\makebox[2.0in][l]{Ort, Datum}%
+}%
+
+
+%------------------------------------------------------------------------------------------------------------------
+%  Document Beginn
+%------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Römische Seitennummerierung
+\pagenumbering{roman}
+\input{Vorgabe/Titelseite.tex}
+
+% Setze Zeilenabstand auf 1.5x
+\setstretch{1.5}
+
+% Einbinden der obligatorischen Kapitel
+\input{Vorgabe/Sperrvermerk.tex}
+\input{Vorgabe/EidesstattlicheErklaerung.tex}
+\input{Vorgabe/Kurzfassung_EN.tex}
+\input{Vorgabe/Kurzfassung_DE.tex}
+\input{Vorgabe/Inhaltsangabe.tex}
+
+% Beginn der arabischen Seitennummerierung
+\pagenumbering{arabic}
+
+% Einbinden der inhaltlichen Kapitel. 
+\input{Kapitel/Einleitung.tex}
+\input{Kapitel/Zielsetzung.tex}
+\input{Kapitel/Material_und_Methoden.tex}
+\input{Kapitel/Ergebnisse.tex}
+\input{Kapitel/Diskussion.tex}
+\input{Kapitel/Zusammenfassung.tex}
+
+% Huinzufügen der abschließenden obligatorischen Kapitel
+% [WIP] Leider keine schönere Methode gefunden, welche die folgenden Kapitel nicht nummeriert, aber dennoch in das Inhaltverzeichnis integriert. Folgende Methode funktioniert.
+\input{Vorgabe/Danksagung.tex}
+\addcontentsline{toc}{chapter}{Danksagung}
+
+\input{Vorgabe/Abbildungsverzeichnis.tex}
+\input{Vorgabe/Tabellenverzeichnis.tex}
+
+\input{Vorgabe/Abkuerzungsverzeichnis.tex}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+
+\input{Literatur/Literaturverzeichnis.tex}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+\input{Vorgabe/Anhang.tex}
+\addcontentsline{toc}{chapter}{Anhang}
+
+\end{document}
+

@@ -1,0 +1,15 @@
+% Fügt ein Abbildungsverzeichnis hinzu. Titel wird automatisch ergänzt.
+\chapter*{Abkürzungsverzeichnis}
+
+
+% Nutze die längste Abkürzung als Option. Das garantiert eine schönere Splatung Zwischen Abkürzung und Ausschreibung
+\begin{acronym}[PACS]
+	\acro{KDE}{K Desktop Enviroment}
+	\acro{SQL}{Structured Query Language}
+	\acro{PACS}{Picture Archiving and Communication System}
+\end{acronym}
+
+
+Anbei befindet sich ein Beispiel, wie Abkürzungen in {\LaTeX} zu verwenden sind. Die in der Main.tex gesetzte Option \textit{printonlyused} manipuliert das Abkürzungsverzeichnis, sodass Abkürzungen, die zwar definiert, aber nicht im Text vorhanden sind, nicht hinzugefügt werden. Siehe folgendes Beispiel:
+
+Die schönste Desktopumgebung ist \ac{KDE}. Ein medizinisches Informationssystem lautet \ac{PACS}. Die Datenbanksprache SQL ist nicht als Abkürzung definiert. Obwohl ein Akronym existiert, wird dies nicht dem Abkürzungsverzeichnis hinzugefügt. Abkürzungen werden bei der ersten Nutzung ausgeschrieben und stehen als Link zur Verfügung.

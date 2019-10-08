@@ -1,0 +1,55 @@
+% Definition der Schriftarten und -größen für das Titelblatt
+\addtokomafont{subject}{\normalfont\Large\rmfamily}
+\addtokomafont{author}{\rmfamily}
+\addtokomafont{date}{\rmfamily}
+\addtokomafont{publishers}{\rmfamily}
+\addtokomafont{title}{\rmfamily}
+\addtokomafont{subtitle}{\normalfont\Large\rmfamily}
+
+
+%------------------------------------------------------------------------------------------------------------------
+%  Title Page Configuration (modify this section only!)
+%------------------------------------------------------------------------------------------------------------------
+\newcommand{\DegreeThesisType}{Masterthesis}
+\newcommand{\TitleOfWork}{Ethische Aspekte der künstlichen Intelligenz in der Medizin}
+\newcommand{\DegreeType}{Master of Science}
+\newcommand{\Faculty}{Fachbereich Gesundheit}
+\newcommand{\Organisation}{Technischen Hochschule Musterstadt}
+\newcommand{\AuthorName}{Emin Yagmahan}
+\newcommand{\PublicDateMY}{Januar 2020}
+\newcommand{\Referent}{Prof. Dr. Max Mustermann}
+\newcommand{\Korreferent}{Dr. Max Mustermann}
+
+
+% Description of Thesis Type
+\subject{\vspace{-1cm}\DegreeThesisType}
+\title{
+	%Title of Work
+	{\vspace{0.5cm}\TitleOfWork}
+}
+
+% Adding Subtitle
+\subtitle{\vspace{2.5cm}zur Erlangung des akademischen Grades \\
+	\DegreeType \\
+	\vspace{1.5cm}
+	vorgelegt dem \\
+	\Faculty \\
+	der \Organisation
+	\vspace{1cm}
+}
+
+% Adding  Author und Pub. Date
+\author{\AuthorName}
+\date{\vspace{0.5cm}im \PublicDateMY}
+
+% Adding Publisher informations
+\publishers{
+	\vspace{5cm}
+	\begin{flushleft}
+		\begin{tabular}{ll}
+			Referent:    & \Referent \\
+			Korreferent: & \Korreferent     
+		\end{tabular}
+	\end{flushleft}
+}
+\maketitle

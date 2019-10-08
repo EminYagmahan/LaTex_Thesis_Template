@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'Main.blg'
+[16] biber:315> INFO - === Di Okt  8, 2019, 22:18:37
+[26] Biber.pm:375> INFO - Reading 'Main.bcf'
+[75] Biber.pm:905> INFO - Found 1 citekeys in bib section 0
+[85] Biber.pm:4196> INFO - Processing section 0
+[86] Utils.pm:75> INFO - Globbing data source 'Literatur/Literaturverzeichnis.bib'
+[86] Utils.pm:91> INFO - Globbed data source 'Literatur/Literaturverzeichnis.bib' to Literatur/Literaturverzeichnis.bib
+[92] Biber.pm:4373> INFO - Looking for bibtex format file 'Literatur/Literaturverzeichnis.bib' for section 0
+[93] bibtex.pm:1462> INFO - LaTeX decoding ...
+[96] bibtex.pm:1281> INFO - Found BibTeX data source 'Literatur/Literaturverzeichnis.bib'
+[106] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[106] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[106] Biber.pm:4024> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[106] Biber.pm:4030> INFO - No sort tailoring available for locale 'de-DE'
+[107] bbl.pm:648> INFO - Writing 'Main.bbl' with encoding 'UTF-8'
+[108] bbl.pm:751> INFO - Output to Main.bbl
